@@ -1,0 +1,126 @@
+{
+  "project_info": {
+    "project_number": "457292346496",
+    "project_id": "urbanclap-6214c",
+    "storage_bucket": "urbanclap-6214c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:457292346496:android:70beb714b7bad8f0542265",
+        "android_client_info": {
+          "package_name": "com.android.urbanclap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "457292346496-klqcqhei64b41dhc8h1b647luhttbht1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.android.urbanclap",
+            "certificate_hash": "16ca5abb3bb22f9a30fcf4fb7f8ad9c971605f6f"
+          }
+        },
+        {
+          "client_id": "457292346496-qe1vdu9u0li1maaj0ullfa63oes8a0oa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAj6cKazyTOILLT8810g9QRVFFYDqo-gpQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "457292346496-qe1vdu9u0li1maaj0ullfa63oes8a0oa.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "457292346496-vageq0hlof8ovcg7hjd67o8lbn8sc9p1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.urbanclap"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:457292346496:android:657db9c0dc019195542265",
+        "android_client_info": {
+          "package_name": "com.example.urbanclap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "457292346496-qe1vdu9u0li1maaj0ullfa63oes8a0oa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAj6cKazyTOILLT8810g9QRVFFYDqo-gpQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "457292346496-qe1vdu9u0li1maaj0ullfa63oes8a0oa.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "457292346496-vageq0hlof8ovcg7hjd67o8lbn8sc9p1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.urbanclap"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:457292346496:android:b7d3d28329b7c491542265",
+        "android_client_info": {
+          "package_name": "com.example.urbanclap_servicemen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "457292346496-qe1vdu9u0li1maaj0ullfa63oes8a0oa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAj6cKazyTOILLT8810g9QRVFFYDqo-gpQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "457292346496-qe1vdu9u0li1maaj0ullfa63oes8a0oa.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "457292346496-vageq0hlof8ovcg7hjd67o8lbn8sc9p1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.urbanclap"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
