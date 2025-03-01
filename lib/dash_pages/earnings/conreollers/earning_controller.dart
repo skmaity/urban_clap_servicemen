@@ -1,21 +1,43 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 class Earning {
-  final String date;
-  final double amount;
-  final String service;
-  final String customerName;
+  final String bookingId;
+  final String paymentId;
+  final String serviceMenId;
+  final String userId;
+  final String status;
+  final String timestamp;
 
   Earning({
-    required this.date,
-    required this.amount,
-    required this.service,
-    required this.customerName,
+    required this.bookingId,
+    required this.paymentId,
+    required this.serviceMenId,
+    required this.userId,
+    required this.status,
+    required this.timestamp,
   });
+
+  // Factory method to create an Earning object from a Firestore document
+  factory Earning.fromFirestore(Map<String, dynamic> data) {
+        Timestamp firestoreTimestamp = data['timestamp'] ?? Timestamp.now();
+    String formattedDate = DateFormat('d MMM y').format(firestoreTimestamp.toDate());
+    return Earning(
+      bookingId: data['bookingId'] ?? '',
+      paymentId: data['paymentId'] ?? '',
+      serviceMenId: data['serviceMenId'] ?? '',
+      userId: data['userId'] ?? '',
+      status: data['status'] ?? '',
+      timestamp: formattedDate,
+    );
+  }
 }
 
 class EarningController extends GetxController {
   var earnings = <Earning>[].obs;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   @override
   void onInit() {
@@ -23,20 +45,20 @@ class EarningController extends GetxController {
     loadEarnings();
   }
 
-  void loadEarnings() {
-    earnings.value = [
-      Earning(date: "2025-02-01", amount: 50.0, service: "Plumbing", customerName: "John Doe"),
-      Earning(date: "2025-02-02", amount: 75.0, service: "AC Repair", customerName: "Jane Smith"),
-      Earning(date: "2025-02-03", amount: 60.0, service: "Cleaning", customerName: "Mark Wilson"),
-      Earning(date: "2025-02-04", amount: 90.0, service: "Electrician", customerName: "Sophia Brown"),
-      Earning(date: "2025-02-05", amount: 120.0, service: "Carpentry", customerName: "Michael Johnson"),
-      Earning(date: "2025-02-06", amount: 45.0, service: "Painting", customerName: "Emma Davis"),
-      Earning(date: "2025-02-07", amount: 80.0, service: "AC Repair", customerName: "Liam Anderson"),
-      Earning(date: "2025-02-08", amount: 100.0, service: "Plumbing", customerName: "Olivia Martinez"),
-      Earning(date: "2025-02-09", amount: 110.0, service: "Cleaning", customerName: "Noah Thompson"),
-      Earning(date: "2025-02-10", amount: 95.0, service: "Electrician", customerName: "Ava Wilson"),
-      Earning(date: "2025-02-11", amount: 130.0, service: "Carpentry", customerName: "William Moore"),
-      Earning(date: "2025-02-12", amount: 55.0, service: "Painting", customerName: "Charlotte White"),
-    ];
+  void loadEarnings() async {
+    String userId = FirebaseAuth.instance.currentUser!.uid;
+
+    try {
+      QuerySnapshot snapshot = await _firestore
+          .collection('payments')
+          .where('serviceMenId', isEqualTo: userId)
+          .get();
+
+      earnings.value = snapshot.docs.map((doc) {
+        return Earning.fromFirestore(doc.data() as Map<String, dynamic>);
+      }).toList();
+    } catch (e) {
+      print("Error loading earnings: $e");
+    }
   }
 }

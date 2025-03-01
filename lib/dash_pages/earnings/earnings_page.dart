@@ -27,7 +27,7 @@ class _EarningsPageState extends State<EarningsPage> {
           Obx(() {
             double totalEarnings = _earningController.earnings.fold(
               0.0,
-              (sum, earning) => sum + earning.amount,
+              (sum, earning) => sum + 170
             );
 
             return Padding(
@@ -82,25 +82,25 @@ class _EarningsPageState extends State<EarningsPage> {
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: ListTile(
-                      leading: CircleAvatar(
-                        backgroundColor: Colors.blueAccent,
-                        child: Text(
-                          earning.service[0], // First letter of service type
-                          style: const TextStyle(color: Colors.white),
-                        ),
-                      ),
-                      title: Text(
-                        earning.service,
-                        style: const TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      subtitle: Text("${earning.customerName} • ${earning.date}"),
-                      trailing: Text(
-                        "₹ ${earning.amount.toStringAsFixed(2)}",
-                        style: const TextStyle(
-                          color: Colors.green,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      // leading: CircleAvatar(
+                      //   backgroundColor: Colors.blueAccent,
+                      //   child: Text(
+                      //     earning.service[0], // First letter of service type
+                      //     style: const TextStyle(color: Colors.white),
+                      //   ),
+                      // ),
+                      // title: Text(
+                      //   earning.,
+                      //   style: const TextStyle(fontWeight: FontWeight.bold),
+                      // ),
+                      subtitle: Text("${earning.userId} • ${earning.timestamp}"),
+                      // trailing: Text(
+                      //   "₹ ${earning.amount.toStringAsFixed(2)}",
+                      //   style: const TextStyle(
+                      //     color: Colors.green,
+                      //     fontWeight: FontWeight.bold,
+                      //   ),
+                      // ),
                     ),
                   );
                 },
